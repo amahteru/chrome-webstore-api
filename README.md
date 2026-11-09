@@ -39,6 +39,8 @@ Feature includes:
 
 To obtain `clientId`, `clientSecret`, and `refreshToken`, see: [token guide](https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md)
 
+Chrome Web Store API v2 also needs your `publisherId`, found in the Developer Dashboard account settings.
+
 ### nodejs API
 
 ```ts
@@ -46,6 +48,7 @@ import { ChromeWebstoreAPI } from "@plasmohq/chrome-webstore-api"
 
 const client = new ChromeWebstoreAPI({
   extId,
+  publisherId,
   clientId,
   clientSecret,
   refreshToken
@@ -53,7 +56,7 @@ const client = new ChromeWebstoreAPI({
 
 await client.submit({
   filePath: zip,
-  target: "trustedTesters"
+  target: "default"
 })
 ```
 
